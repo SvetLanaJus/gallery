@@ -10,26 +10,93 @@ export default function GalleryCard({
   description,
 }: GalleryCardProps) {
   return (
-    <article className="group overflow-hidden rounded-2xl bg-gray-900 border border-white/10">
-      
-      <div className="aspect-square overflow-hidden">
+    <article
+      className="
+        group
+        relative
+        overflow-hidden
+        rounded-2xl
+        bg-gray-900
+        border border-white/10
+        shadow-lg
+        transition-all
+        duration-500
+        hover:-translate-y-2
+        hover:shadow-2xl
+      "
+    >
+      {/* IMAGE */}
+      <div className="relative aspect-square overflow-hidden">
+
         <img
           src={image}
           alt={title}
-          className="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+          className="
+            w-full
+            h-full
+            object-cover
+            transition-transform
+            duration-700
+            group-hover:scale-110
+          "
         />
+
+        {/* DARK OVERLAY */}
+        <div
+          className="
+            absolute
+            inset-0
+            bg-black/0
+            transition-all
+            duration-500
+            group-hover:bg-black/50
+          "
+        />
+
+        {/* VIEW PROJECT */}
+        <div
+          className="
+            absolute
+            inset-0
+            flex
+            items-center
+            justify-center
+            opacity-0
+            transition-all
+            duration-500
+            group-hover:opacity-100
+          "
+        >
+          <button
+            className="
+              rounded-full
+              bg-white
+              px-6
+              py-3
+              text-sm
+              font-semibold
+              text-black
+              transition
+              hover:bg-gray-200
+            "
+          >
+            View project →
+          </button>
+        </div>
       </div>
 
+      {/* TEXT */}
       <div className="p-5">
-        <h3 className="text-xl font-semibold mb-2">
+
+        <h3 className="mb-2 text-xl font-semibold">
           {title}
         </h3>
 
         <p className="text-gray-400">
           {description}
         </p>
-      </div>
 
+      </div>
     </article>
   )
 }
