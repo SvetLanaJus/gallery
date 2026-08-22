@@ -1,3 +1,5 @@
+import artwork from "../assets/kot.jpg"
+
 export default function Hero() {
   return (
     <section className="min-h-[calc(100vh-72px)] px-6 py-20">
@@ -23,15 +25,37 @@ export default function Hero() {
           </button>
         </div>
 
-        {/* IMAGE AREA */}
-        <div className="relative">
-          <div className="aspect-square rounded-3xl bg-gray-900 border border-gray-800 flex items-center justify-center overflow-hidden">
+        {/* 3D IMAGE AREA */}
+        <div className="relative group perspective-[1000px]">
 
-            <span className="text-gray-500 text-xl">
-              Your image here
-            </span>
+          {/* Glow behind the card */}
+          <div className="absolute -inset-4 bg-blue-500/20 rounded-3xl blur-3xl" />
 
+          {/* 3D Card */}
+          <div
+            className="
+              relative
+              aspect-square
+              rounded-3xl
+              bg-gray-900
+              border border-white/10
+              overflow-hidden
+              shadow-2xl
+              transition-all
+              duration-500
+              transform-gpu
+              group-hover:rotate-y-3
+              group-hover:-rotate-x-2
+              group-hover:scale-[1.02]
+            "
+          >
+            <img
+              src={artwork}
+              alt="My artwork"
+              className="w-full h-full object-cover"
+            />
           </div>
+
         </div>
 
       </div>
