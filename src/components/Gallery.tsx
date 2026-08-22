@@ -1,5 +1,5 @@
 import GalleryCard from "./GalleryCard"
-import artwork from "../assets/kot.jpg"
+import { galleryData } from "../data/galleryData"
 
 export default function Gallery() {
   return (
@@ -15,25 +15,14 @@ export default function Gallery() {
         </p>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
-          <GalleryCard
-            image={artwork}
-            title="My Artwork"
-            description="A creative project from my gallery."
-          />
-
-          <GalleryCard
-            image={artwork}
-            title="Creative Work"
-            description="Another example of my work."
-          />
-
-          <GalleryCard
-            image={artwork}
-            title="Latest Project"
-            description="One of my latest creative projects."
-          />
-
+          {galleryData.map((item) => (
+            <GalleryCard
+              key={item.title}
+              image={item.image}
+              title={item.title}
+              description={item.description}
+            />
+          ))}
         </div>
 
       </div>
