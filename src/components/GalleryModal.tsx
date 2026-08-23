@@ -22,9 +22,10 @@ export default function GalleryModal({
         justify-center
         bg-black/80
         p-6
+        animate-fade-in
       "
     >
-      <div className="relative max-w-6xl w-full">
+      <div className="relative max-w-7xl w-full animate-modal-in">
 
         {/* CLOSE BUTTON */}
         <button
